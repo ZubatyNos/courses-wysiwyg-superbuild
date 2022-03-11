@@ -34,7 +34,7 @@ import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
-// import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
+import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
@@ -65,7 +65,6 @@ import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
-// import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 
 class MarkdownClassicEditor extends ClassicEditorBase {} 
 
@@ -84,14 +83,19 @@ MarkdownClassicEditor.builtinPlugins = [
 	Image,
 	ImageCaption,
 	ImageStyle,
+	ImageResize,
 	ImageToolbar,
+	ImageInsert,
+	ImageUpload,
 	Link,
 	List,
+	ListProperties,
 	Paragraph,
 	PasteFromOffice,
 	Table,
 	TableToolbar,
 	MediaEmbed,
+	// MediaEmbedToolbar,
 	Base64UploadAdapter,
 	SourceEditing,
 	SpecialCharacters,
@@ -118,10 +122,10 @@ MarkdownClassicEditor.defaultConfig = {
 			'link',
 			'bulletedList',
 			'numberedList',
-			'todoList',
+			// 'todoList',
 			'specialCharacters',
 			'|',
-			'imageUpload',
+			'imageInsert',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
@@ -137,10 +141,16 @@ MarkdownClassicEditor.defaultConfig = {
 	},
 	image: {
 		toolbar: [
-			'imageStyle:full',
+			'imageStyle:inline',
+			'imageStyle:block',
 			'imageStyle:side',
 			'|',
+			'toggleImageCaption',
 			'imageTextAlternative'
+			// 'imageStyle:full',
+			// 'imageStyle:side',
+			// '|',
+			// 'imageTextAlternative'
 		]
 	},
 	table: {
@@ -157,136 +167,6 @@ MarkdownClassicEditor.defaultConfig = {
 
 
 class HTMLClassicEditor extends ClassicEditorBase {}
-class InlineEditor extends InlineEditorBase {}
-
-InlineEditor.builtinPlugins = [
-	Alignment,
-	Autoformat,
-	Base64UploadAdapter,
-	BlockQuote,
-	Bold,
-	Code,
-	CodeBlock,
-	Essentials,
-	FindAndReplace,
-	FontBackgroundColor,
-	FontColor,
-	FontFamily,
-	FontSize,
-	Heading,
-	Highlight,
-	HorizontalLine,
-	HtmlComment,
-	// HtmlEmbed,
-	Image,
-	ImageCaption,
-	ImageInsert,
-	ImageResize,
-	ImageStyle,
-	ImageToolbar,
-	// ImageUpload,
-	Indent,
-	IndentBlock,
-	Italic,
-	Link,
-	List,
-	MediaEmbed,
-	MediaEmbedToolbar,
-	PageBreak,
-	Paragraph,
-	PasteFromOffice,
-	RemoveFormat,
-	SourceEditing,
-	// SpecialCharacters, // DALLL SOM PREC
-	// SpecialCharactersArrows,
-	// SpecialCharactersCurrency,
-	// SpecialCharactersEssentials,
-	// SpecialCharactersLatin,
-	// SpecialCharactersMathematical,
-	// SpecialCharactersText,
-	Strikethrough,
-	Subscript,
-	Superscript,
-	Table,
-	TableCaption,
-	TableCellProperties,
-	TableProperties,
-	TableToolbar,
-	TextTransformation,
-	Underline,
-	// WordCount
-]
-
-InlineEditor.defaultConfig = {
-	toolbar: {
-		items: [
-			'heading',
-			'|',
-			'fontSize',
-			'fontFamily',
-			'|',
-			'fontColor',
-			'fontBackgroundColor',
-			'|',
-			'bold',
-			'italic',
-			'underline',
-			'strikethrough',
-			'subscript',
-			'superscript',
-			'removeFormat',
-			'|',
-			'alignment',
-			'|',
-			'bulletedList',
-			'numberedList',
-			'todoList',
-			'|',
-			'outdent',
-			'indent',
-			'findAndReplace',
-			// 'specialCharacters', // DAAL SOM PREC
-			'|',
-			'link',
-			'blockQuote',
-			'imageInsert',
-			'insertTable',
-			'mediaEmbed',
-			'|',
-			'undo',
-			'redo',
-			'|',
-			'code',
-			'codeBlock',
-			'highlight',
-			// 'htmlEmbed',
-			'pageBreak',
-			'horizontalLine',
-			'sourceEditing'
-		]
-	},
-	image: {
-		toolbar: [
-			'imageStyle:inline',
-			'imageStyle:block',
-			'imageStyle:side',
-			'|',
-			'toggleImageCaption',
-			'imageTextAlternative'
-		]
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells',
-			'tableCellProperties',
-			'tableProperties'
-		]
-	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
-}
 
 
 // Plugins to include in the build.
@@ -315,14 +195,15 @@ HTMLClassicEditor.builtinPlugins = [
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
-	// ImageUpload,
+	ImageUpload,
 	Indent,
 	IndentBlock,
 	Italic,
 	Link,
 	List,
+	ListProperties,
 	MediaEmbed,
-	MediaEmbedToolbar,
+	// MediaEmbedToolbar,
 	PageBreak,
 	Paragraph,
 	PasteFromOffice,
@@ -372,12 +253,12 @@ HTMLClassicEditor.defaultConfig = {
 			'|',
 			'bulletedList',
 			'numberedList',
-			'todoList',
+			// 'todoList',
 			'|',
 			'outdent',
 			'indent',
 			'findAndReplace',
-			'specialCharacters', // DAAL SOM PREC
+			'specialCharacters',
 			'|',
 			'link',
 			'blockQuote',
@@ -422,5 +303,4 @@ HTMLClassicEditor.defaultConfig = {
 
 export default {
 	HTMLClassicEditor, MarkdownClassicEditor
-	// HTMLClassicEditor, InlineEditor
 }
