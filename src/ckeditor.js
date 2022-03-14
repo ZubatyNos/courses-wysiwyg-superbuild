@@ -26,6 +26,7 @@ import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
+import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
 import HtmlComment from '@ckeditor/ckeditor5-html-support/src/htmlcomment.js';
 // import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
@@ -184,6 +185,7 @@ HTMLClassicEditor.builtinPlugins = [
 	FontColor,
 	FontFamily,
 	FontSize,
+	GeneralHtmlSupport,
 	Heading,
 	Highlight,
 	HorizontalLine,

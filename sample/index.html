@@ -29,7 +29,19 @@
 	<script src="../build/ckeditor.js"></script>
 	<script>
 		CKEDITOR.HTMLClassicEditor
-			.create( document.querySelector( '#classic-editor' ) )
+			.create( document.querySelector( '#classic-editor' ), {
+				htmlSupport: {
+					allow: [ 
+						{
+							name: /.*/,
+							attributes: true,
+							classes: true,
+							styles: true
+						}
+					 ],
+					disallow: [ /* HTML features to disallow */ ]
+				} 
+			} )
 			.catch( err => {
 				console.error( err.stack );
 			} );
