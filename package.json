@@ -25,15 +25,15 @@
     "build",
     "ckeditor5-metadata.json"
   ],
-  "dependencies": {
-  },
   "devDependencies": {
-    
     "@ckeditor/ckeditor5-alignment": "^32.0.0",
     "@ckeditor/ckeditor5-autoformat": "^32.0.0",
     "@ckeditor/ckeditor5-basic-styles": "^32.0.0",
     "@ckeditor/ckeditor5-block-quote": "^32.0.0",
     "@ckeditor/ckeditor5-code-block": "^32.0.0",
+    "@ckeditor/ckeditor5-core": "^32.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "^28.0.1",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^28.0.1",
     "@ckeditor/ckeditor5-editor-classic": "^32.0.0",
     "@ckeditor/ckeditor5-essentials": "^32.0.0",
     "@ckeditor/ckeditor5-find-and-replace": "^32.0.0",
@@ -55,13 +55,9 @@
     "@ckeditor/ckeditor5-source-editing": "^32.0.0",
     "@ckeditor/ckeditor5-special-characters": "^32.0.0",
     "@ckeditor/ckeditor5-table": "^32.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "^32.0.0",
     "@ckeditor/ckeditor5-typing": "^32.0.0",
     "@ckeditor/ckeditor5-upload": "^32.0.0",
-    "@ckeditor/ckeditor5-core": "^32.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^28.0.1",
-    "@ckeditor/ckeditor5-dev-webpack-plugin": "^28.0.1",
-    "@ckeditor/ckeditor5-editor-inline": "^32.0.0",
-    "@ckeditor/ckeditor5-theme-lark": "^32.0.0",
     "css-loader": "^5.2.7",
     "postcss-loader": "^4.3.0",
     "raw-loader": "^4.0.1",

@@ -21,9 +21,8 @@
 	</div>
 	
 	<div id="mdclassic-editor">
-		<h2>Sample</h2>
-	
-		<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#inline-editor">inline editor build</a>.</p>
+### this is a heading?
+
 	</div>
 	
 	<script src="../build/ckeditor.js"></script>
@@ -47,7 +46,19 @@
 			} );
 	
 		CKEDITOR.MarkdownClassicEditor
-			.create( document.querySelector( '#mdclassic-editor' ) )
+			.create( document.querySelector( '#mdclassic-editor' ), {
+				htmlSupport: {
+					allow: [ 
+						{
+							name: /.*/,
+							attributes: true,
+							classes: true,
+							styles: true
+						}
+					 ],
+					disallow: [ /* HTML features to disallow */ ]
+				}
+			} )
 			.catch( err => {
 				console.error( err.stack );
 			} );

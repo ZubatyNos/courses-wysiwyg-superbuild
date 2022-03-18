@@ -5,7 +5,6 @@
 
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
 
 import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown';
 
@@ -30,6 +29,7 @@ import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtml
 import HtmlComment from '@ckeditor/ckeditor5-html-support/src/htmlcomment.js';
 // import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
@@ -73,10 +73,12 @@ MarkdownClassicEditor.builtinPlugins = [
 	Essentials,
 	Markdown,
 	Autoformat,
+	AutoImage,
 	Bold,
 	Code,
 	CodeBlock,
 	Italic,
+	GeneralHtmlSupport,
 	Underline,
 	Strikethrough,
 	BlockQuote,
@@ -84,7 +86,7 @@ MarkdownClassicEditor.builtinPlugins = [
 	Image,
 	ImageCaption,
 	ImageStyle,
-	ImageResize,
+	// ImageResize,
 	ImageToolbar,
 	ImageInsert,
 	ImageUpload,
@@ -94,8 +96,8 @@ MarkdownClassicEditor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar,
-	MediaEmbed,
+	// TableToolbar,
+	// MediaEmbed, 	
 	// MediaEmbedToolbar,
 	Base64UploadAdapter,
 	SourceEditing,
@@ -158,7 +160,7 @@ MarkdownClassicEditor.defaultConfig = {
 		contentToolbar: [
 			'tableColumn',
 			'tableRow',
-			'mergeTableCells'
+			// 'mergeTableCells'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
@@ -174,6 +176,7 @@ class HTMLClassicEditor extends ClassicEditorBase {}
 HTMLClassicEditor.builtinPlugins = [
 	Alignment,
 	Autoformat,
+	AutoImage,
 	Base64UploadAdapter,
 	BlockQuote,
 	Bold,
