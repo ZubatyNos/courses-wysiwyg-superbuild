@@ -8,6 +8,8 @@ import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classicedi
 
 import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown';
 
+// import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
+
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
@@ -67,7 +69,19 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 
-class MarkdownClassicEditor extends ClassicEditorBase {} 
+class MarkdownClassicEditor extends ClassicEditorBase {
+	// constructor( initialData, config ) {
+	// 	super( initialData, config );
+
+	// 	const dp = new GFMDataProcessor( this.data.viewDocument );
+	// 	dp.keepHtml( 'div' );
+	// 	dp.keepHtml( 'section' );
+	// 	dp.keepHtml( 'span' );
+	// 	dp.keepHtml( 'article' );
+
+	// 	this.data.processor = dp;
+	// }
+} 
 
 MarkdownClassicEditor.builtinPlugins = [
 	Essentials,
@@ -81,6 +95,10 @@ MarkdownClassicEditor.builtinPlugins = [
 	GeneralHtmlSupport,
 	Underline,
 	Strikethrough,
+	FontBackgroundColor,
+	FontColor,
+	FontFamily,
+	FontSize,
 	BlockQuote,
 	Heading,
 	Image,
@@ -126,7 +144,7 @@ MarkdownClassicEditor.defaultConfig = {
 			'bulletedList',
 			'numberedList',
 			// 'todoList',
-			'specialCharacters',
+			'horizontalLine',
 			'|',
 			'imageInsert',
 			'blockQuote',
@@ -138,7 +156,7 @@ MarkdownClassicEditor.defaultConfig = {
 			'|',
 			'code',
 			'codeBlock',
-			'horizontalLine',
+			'specialCharacters',
 			'sourceEditing'
 		]
 	},
@@ -209,7 +227,7 @@ HTMLClassicEditor.builtinPlugins = [
 	ListProperties,
 	MediaEmbed,
 	// MediaEmbedToolbar,
-	PageBreak,
+	// PageBreak,
 	Paragraph,
 	PasteFromOffice,
 	RemoveFormat,
@@ -250,9 +268,8 @@ HTMLClassicEditor.defaultConfig = {
 			'italic',
 			'underline',
 			'strikethrough',
-			'subscript',
-			'superscript',
 			'removeFormat',
+			'horizontalLine',
 			'|',
 			'alignment',
 			'|',
@@ -262,7 +279,6 @@ HTMLClassicEditor.defaultConfig = {
 			'|',
 			'outdent',
 			'indent',
-			'findAndReplace',
 			'specialCharacters',
 			'|',
 			'link',
@@ -278,8 +294,10 @@ HTMLClassicEditor.defaultConfig = {
 			'codeBlock',
 			'highlight',
 			// 'htmlEmbed',
-			'pageBreak',
-			'horizontalLine',
+			// 'pageBreak',
+			'subscript',
+			'superscript',
+			'findAndReplace',
 			'sourceEditing'
 		]
 	},

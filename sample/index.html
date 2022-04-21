@@ -26,7 +26,10 @@
 	</div>
 	
 	<script src="../build/ckeditor.js"></script>
+	<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 	<script>
+		let e1
+		let e2
 		CKEDITOR.HTMLClassicEditor
 			.create( document.querySelector( '#classic-editor' ), {
 				htmlSupport: {
@@ -40,6 +43,10 @@
 					 ],
 					disallow: [ /* HTML features to disallow */ ]
 				} 
+			} )
+			.then( newEditor => {
+				CKEditorInspector.attach( newEditor );
+				e1 = newEditor;
 			} )
 			.catch( err => {
 				console.error( err.stack );
@@ -58,6 +65,10 @@
 					 ],
 					disallow: [ /* HTML features to disallow */ ]
 				}
+			} )
+			.then( newEditor => {
+				CKEditorInspector.attach( newEditor );
+				e2 = newEditor;
 			} )
 			.catch( err => {
 				console.error( err.stack );
